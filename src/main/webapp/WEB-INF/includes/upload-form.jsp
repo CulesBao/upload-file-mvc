@@ -9,7 +9,24 @@
 #fileInput{display:none;}
 #selectedFiles{font-size:14px;color:#666;}
 #uploadForm .btn{width:100%;margin-top:20px;padding:15px;font-size:16px;}
+.upload-mode{display:flex;gap:10px;margin-bottom:20px;justify-content:center;}
+.upload-mode label{display:flex;align-items:center;gap:5px;cursor:pointer;padding:10px 20px;border:2px solid #667eea;border-radius:5px;background:white;transition:all 0.3s;}
+.upload-mode input[type="radio"]{cursor:pointer;}
+.upload-mode label:has(input:checked){background:#667eea;color:white;font-weight:bold;}
 </style>
+
+<!-- Upload Mode Selection -->
+<div class="upload-mode">
+    <label>
+        <input type="radio" name="uploadMode" value="sync" checked>
+        &#9889; Sync Upload (Wait)
+    </label>
+    <label>
+        <input type="radio" name="uploadMode" value="async">
+        &#128640; Async Upload (Background)
+    </label>
+</div>
+
 <form action="<%= request.getContextPath() %>/upload" method="post" enctype="multipart/form-data" id="uploadForm">
     <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
         <input type="file" name="files" id="fileInput" multiple onchange="handleFileSelect(this)">

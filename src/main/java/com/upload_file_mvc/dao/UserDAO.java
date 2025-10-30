@@ -114,22 +114,6 @@ public class UserDAO {
         }
     }
 
-    public boolean updatePassword(int userId, String newPassword) {
-        String sql = "UPDATE users SET password = ? WHERE id = ?";
-        
-        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
-            stmt.setString(1, PasswordUtil.encryptPassword(newPassword));
-            stmt.setInt(2, userId);
-            
-            return stmt.executeUpdate() > 0;
-            
-        } catch (SQLException e) {
-            System.err.println("Error updating password: " + e.getMessage());
-            e.printStackTrace();
-            return false;
-        }
-    }
-
     public boolean deleteUser(int userId) {
         String sql = "DELETE FROM users WHERE id = ?";
         
@@ -162,13 +146,7 @@ public class UserDAO {
         
         return false;
     }
-    
-    /**
-     * Xác thực user (login)
-     * @param username Username
-     * @param password Password
-     * @return User object nếu đúng, null nếu sai
-     */
+
     public User authenticate(String email, String password) {
         User user = findByEmail(email);
         

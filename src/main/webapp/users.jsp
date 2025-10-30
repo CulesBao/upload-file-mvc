@@ -13,10 +13,6 @@ List<User> users = (List<User>) request.getAttribute("users");
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Arial,sans-serif;background:#f5f5f5}
-.navbar{background:#667eea;color:white;padding:15px 30px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
-.navbar h1{font-size:24px}
-.navbar a{color:white;text-decoration:none;padding:8px 15px;border-radius:5px;margin-left:10px}
-.navbar a:hover{background:rgba(255,255,255,0.2)}
 .container{max-width:1200px;margin:40px auto;padding:0 20px}
 .users-card{background:white;padding:30px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
 .users-card h2{color:#333;margin-bottom:20px}
@@ -29,17 +25,7 @@ tr:hover{background:#f5f5f5}
 </style>
 </head>
 <body>
-<div class="navbar">
-<h1>Upload File MVC</h1>
-<div>
-<a href="<%= request.getContextPath() %>/home">Home</a>
-<a href="<%= request.getContextPath() %>/profile">Profile</a>
-<a href="<%= request.getContextPath() %>/users">Users</a>
-<a href="<%= request.getContextPath() %>/upload">Upload</a>
-<a href="<%= request.getContextPath() %>/files">My Files</a>
-<a href="<%= request.getContextPath() %>/logout">Logout</a>
-</div>
-</div>
+<%@ include file="/WEB-INF/includes/navbar.jsp" %>
 <div class="container">
 <div class="users-card">
 <h2>User List</h2>

@@ -14,11 +14,6 @@ String warningMessage = request.getParameter("warning");
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Arial,sans-serif;background:#f5f5f5}
-.navbar{background:#667eea;color:white;padding:15px 30px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
-.navbar h1{font-size:24px}
-.navbar .user-info{display:flex;align-items:center;gap:20px}
-.navbar a{color:white;text-decoration:none;padding:8px 15px;border-radius:5px;transition:background 0.3s}
-.navbar a:hover{background:rgba(255,255,255,0.2)}
 .container{max-width:1200px;margin:40px auto;padding:0 20px}
 .alert{padding:15px 20px;border-radius:8px;margin-bottom:20px;display:flex;align-items:center;gap:10px}
 .alert-success{background:#d4edda;color:#155724;border:1px solid #c3e6cb}
@@ -39,17 +34,7 @@ body{font-family:Arial,sans-serif;background:#f5f5f5}
 </style>
 </head>
 <body>
-<div class="navbar">
-<h1>Upload File MVC</h1>
-<div class="user-info">
-<span>Welcome, <%= user != null ? user.getFullName() : "Guest" %>!</span>
-<a href="<%= request.getContextPath() %>/home">Home</a>
-<a href="<%= request.getContextPath() %>/profile">Profile</a>
-<a href="<%= request.getContextPath() %>/users">Users</a>
-<a href="<%= request.getContextPath() %>/files">My Files</a>
-<a href="<%= request.getContextPath() %>/logout" class="logout-btn">Logout</a>
-</div>
-</div>
+<%@ include file="/WEB-INF/includes/navbar.jsp" %>
 <div class="container">
 <% if (successMessage != null) { %>
 <div class="alert alert-success">

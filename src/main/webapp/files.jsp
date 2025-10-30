@@ -18,14 +18,6 @@ SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
     <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Arial,sans-serif;background:#f5f5f5}
-.navbar{background:#667eea;color:white;padding:15px 30px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
-.navbar h1{font-size:24px}
-.navbar .user-info{display:flex;align-items:center;gap:20px}
-.navbar a{color:white;text-decoration:none;padding:8px 15px;border-radius:5px;transition:background 0.3s}
-.navbar a:hover{background:rgba(255,255,255,0.2)}
-.navbar a.active{background:rgba(255,255,255,0.3)}
-.logout-btn{background:#e74c3c;padding:8px 15px;border-radius:5px}
-.logout-btn:hover{background:#c0392b}
 .container{max-width:1400px;margin:30px auto;padding:0 20px}
 .tabs{background:white;border-radius:10px 10px 0 0;box-shadow:0 2px 10px rgba(0,0,0,0.1);display:flex;overflow:hidden}
 .tab{flex:1;padding:20px;text-align:center;background:#f8f9fa;border:none;cursor:pointer;font-size:16px;font-weight:600;color:#666;transition:all 0.3s;border-bottom:3px solid transparent}
@@ -189,6 +181,20 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Handle upload mode change
+    const uploadForm = document.getElementById('uploadForm');
+    const uploadModeRadios = document.querySelectorAll('input[name="uploadMode"]');
+    
+    uploadModeRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            if (this.value === 'async') {
+                uploadForm.action = '<%= request.getContextPath() %>/upload-async';
+            } else {
+                uploadForm.action = '<%= request.getContextPath() %>/upload';
+            }
+        });
+    });
 
     const uploadZone = document.querySelector('.upload-zone');
     if (uploadZone) {

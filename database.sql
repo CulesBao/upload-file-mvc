@@ -24,3 +24,26 @@ CREATE TABLE IF NOT EXISTS uploaded_files (
     upload_date TIMESTAMP DEFAULT NOW(),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+
+CREATE TABLE IF NOT EXISTS upload_tasks (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    
+    file_name VARCHAR(255) NOT NULL,
+    file_size BIGINT NOT NULL,
+    file_type VARCHAR(100),
+    
+    status ENUM('PENDING', 'PROCESSING', 'COMPLETED', 'FAILED') DEFAULT 'PENDING',
+    progress INT DEFAULT 0, 
+    
+    cloudinary_url VARCHAR(500),
+    cloudinary_public_id VARCHAR(255),
+    
+    error_message TEXT,
+    
+    created_at TIMESTAMP DEFAULT NOW(),
+    started_at TIMESTAMP NULL,
+    completed_at TIMESTAMP NULL,
+    
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
