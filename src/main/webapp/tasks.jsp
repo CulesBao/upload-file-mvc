@@ -133,8 +133,8 @@ String warningMsg = request.getParameter("warning");
             <div class="empty-state">
                 <div class="empty-state-icon">&#128193;</div>
                 <h3>No upload tasks yet</h3>
-                <p>Upload files using async upload to see tasks here</p>
-                <a href="<%= request.getContextPath() %>/upload" class="btn btn-primary">Upload Files</a>
+                <p>Upload files to see tasks here</p>
+                <a href="<%= request.getContextPath() %>/files" class="btn btn-primary">Go to Upload</a>
             </div>
         <% } else { %>
             <% for (UploadTask task : tasks) { %>
@@ -157,7 +157,7 @@ String warningMsg = request.getParameter("warning");
                     <% if (task.isPending() || task.isProcessing()) { %>
                         <div class="progress-container">
                             <div class="progress-bar">
-                                <div class="progress-fill" style="width: <%= task.getProgress() %>%">
+                                <div class="progress-fill" data-progress="<%= task.getProgress() %>">
                                     <%= task.getProgress() %>%
                                 </div>
                             </div>
@@ -275,6 +275,11 @@ String warningMsg = request.getParameter("warning");
                 lastUpdate.textContent = '(Last update: ' + timeStr + ')';
             }
         }
+        
+        // Set initial progress bar widths from data attributes
+        document.querySelectorAll('.progress-fill[data-progress]').forEach(el => {
+            el.style.width = el.dataset.progress + '%';
+        });
         
         // Start auto-refresh on page load
         window.addEventListener('load', startAutoRefresh);

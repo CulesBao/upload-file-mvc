@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/home", "/profile", "/users", "/user/*", "/upload"})
+@WebFilter(urlPatterns = {"/home", "/profile", "/users", "/user/*", "/upload-async", "/tasks", "/files"})
 public class AuthFilter implements Filter {
     
     @Override

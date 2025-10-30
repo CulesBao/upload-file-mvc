@@ -22,7 +22,7 @@ String currentPage = request.getServletPath();
         <a href="<%= request.getContextPath() %>/profile" <%= currentPage.equals("/profile.jsp") ? "class=\"active\"" : "" %>>Profile</a>
         <a href="<%= request.getContextPath() %>/users" <%= currentPage.equals("/users.jsp") ? "class=\"active\"" : "" %>>Users</a>
         <a href="<%= request.getContextPath() %>/files" <%= currentPage.equals("/files.jsp") ? "class=\"active\"" : "" %>>My Files</a>
-        <a href="<%= request.getContextPath() %>/tasks" <%= currentPage.equals("/tasks.jsp") ? "class=\"active\"" : "" %>>&#128202; Tasks</a>
+        <a href="<%= request.getContextPath() %>/tasks" <%= currentPage.equals("/tasks.jsp") ? "class=\"active\"" : "" %>>Tasks</a>
         <a href="<%= request.getContextPath() %>/logout" class="logout-btn">Logout</a>
     </div>
 </div>

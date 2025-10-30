@@ -182,20 +182,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Handle upload mode change
-    const uploadForm = document.getElementById('uploadForm');
-    const uploadModeRadios = document.querySelectorAll('input[name="uploadMode"]');
-    
-    uploadModeRadios.forEach(radio => {
-        radio.addEventListener('change', function() {
-            if (this.value === 'async') {
-                uploadForm.action = '<%= request.getContextPath() %>/upload-async';
-            } else {
-                uploadForm.action = '<%= request.getContextPath() %>/upload';
-            }
-        });
-    });
-
     const uploadZone = document.querySelector('.upload-zone');
     if (uploadZone) {
         uploadZone.addEventListener('dragover', function(e) {

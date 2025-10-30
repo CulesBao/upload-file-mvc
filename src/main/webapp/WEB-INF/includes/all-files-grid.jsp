@@ -30,7 +30,7 @@ SimpleDateFormat allDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
     <div class="empty-state-icon">&#128193;</div>
     <h3>No files uploaded yet</h3>
     <p style="margin-top:10px;color:#999">Upload your first file to get started!</p>
-    <a href="<%= request.getContextPath() %>/upload" class="btn btn-primary" style="margin-top:20px">Upload Files</a>
+    <a href="<%= request.getContextPath() %>/files" class="btn btn-primary" style="margin-top:20px">Upload Files</a>
 </div>
 <% } else { %>
 <div class="files-grid">
