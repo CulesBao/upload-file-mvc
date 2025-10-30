@@ -34,6 +34,9 @@ tr:hover{background:#f5f5f5}
 <div>
 <a href="<%= request.getContextPath() %>/home">Home</a>
 <a href="<%= request.getContextPath() %>/profile">Profile</a>
+<a href="<%= request.getContextPath() %>/users">Users</a>
+<a href="<%= request.getContextPath() %>/upload">Upload</a>
+<a href="<%= request.getContextPath() %>/files">My Files</a>
 <a href="<%= request.getContextPath() %>/logout">Logout</a>
 </div>
 </div>

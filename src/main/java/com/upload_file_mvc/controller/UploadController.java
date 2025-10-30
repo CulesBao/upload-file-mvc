@@ -8,11 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
-import com.upload_file_mvc.database.DatabaseConnection;
+import com.upload_file_mvc.dao.UploadedFileDAO;
 import com.upload_file_mvc.util.SessionUtil;
 import com.upload_file_mvc.util.CloudinaryUtil;
 import com.upload_file_mvc.config.CloudinaryConfig;
@@ -28,6 +24,12 @@ import java.util.Map;
 )
 public class UploadController extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    private UploadedFileDAO uploadedFileDAO;
+
+    @Override
+    public void init() {
+        uploadedFileDAO = new UploadedFileDAO();
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -38,8 +40,6 @@ public class UploadController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        // Get user ID from session
         Integer userId = SessionUtil.getUserId(request);
         
         if (userId == null) {
@@ -47,9 +47,6 @@ public class UploadController extends HttpServlet {
             request.getRequestDispatcher("login.jsp").forward(request, response);
             return;
         }
-
-        DatabaseConnection dbConnection = DatabaseConnection.getInstance();
-        Connection conn = dbConnection.getConnection();
 
         int uploadCount = 0;
         int errorCount = 0;
@@ -65,7 +62,6 @@ public class UploadController extends HttpServlet {
                 }
                 
                 InputStream inputStream = null;
-                PreparedStatement stmt = null;
                 
                 try {
                     inputStream = part.getInputStream();
@@ -75,20 +71,20 @@ public class UploadController extends HttpServlet {
                     String cloudinaryUrl = (String) uploadResult.get("secure_url");
                     String publicId = (String) uploadResult.get("public_id");
 
-                    String sql = "INSERT INTO uploaded_files (file_name, file_path, file_size, file_type, user_id, cloudinary_public_id, cloudinary_url) VALUES (?, ?, ?, ?, ?, ?, ?)";
-                    stmt = conn.prepareStatement(sql);
-                    stmt.setString(1, fileName);
-                    stmt.setString(2, cloudinaryUrl);
-                    stmt.setLong(3, part.getSize());
-                    stmt.setString(4, part.getContentType());
-                    stmt.setInt(5, userId);
-                    stmt.setString(6, publicId);
-                    stmt.setString(7, cloudinaryUrl);
+                    boolean saved = uploadedFileDAO.insertFile(
+                        fileName, 
+                        cloudinaryUrl, 
+                        part.getSize(), 
+                        part.getContentType(), 
+                        userId, 
+                        publicId
+                    );
                     
-                    int rows = stmt.executeUpdate();
-                    if (rows > 0) {
+                    if (saved) {
                         uploadCount++;
-                        System.out.println("💾 Saved to database: " + fileName);
+                    } else {
+                        errorCount++;
+                        errorMessages.append("Failed to save ").append(fileName).append(" to database<br>");
                     }
                     
                 } catch (Exception e) {
@@ -97,9 +93,6 @@ public class UploadController extends HttpServlet {
                     errorMessages.append("Failed to upload ").append(fileName).append(": ").append(errorMsg).append("<br>");
                     e.printStackTrace();
                 } finally {
-                    if (stmt != null) {
-                        try { stmt.close(); } catch (SQLException e) { e.printStackTrace(); }
-                    }
                     if (inputStream != null) {
                         try { inputStream.close(); } catch (IOException e) { e.printStackTrace(); }
                     }
@@ -107,18 +100,16 @@ public class UploadController extends HttpServlet {
             }
         }
 
-        StringBuilder message = new StringBuilder();
-        if (uploadCount > 0) {
-            message.append("Successfully uploaded ").append(uploadCount).append(" file(s)!<br>");
+        String redirectUrl = request.getContextPath() + "/home";
+        
+        if (uploadCount > 0 && errorCount == 0) {
+            redirectUrl += "?success=Successfully uploaded " + uploadCount + " file(s) to Cloudinary!";
+        } else if (uploadCount > 0 && errorCount > 0) {
+            redirectUrl += "?warning=Uploaded " + uploadCount + " file(s), but " + errorCount + " file(s) failed";
+        } else if (errorCount > 0) {
+            redirectUrl += "?error=Failed to upload files. " + errorMessages.toString().replaceAll("<br>", " ");
         }
-        if (errorCount > 0) {
-            message.append("Failed to upload ").append(errorCount).append(" file(s):<br>")
-                   .append(errorMessages.toString());
-        }
-
-        request.setAttribute("message", message.toString());
-        request.setAttribute("uploadCount", uploadCount);
-        request.setAttribute("errorCount", errorCount);
-        request.getRequestDispatcher("success.jsp").forward(request, response);
+        
+        response.sendRedirect(redirectUrl);
     }
 }

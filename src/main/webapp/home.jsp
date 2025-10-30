@@ -2,6 +2,9 @@
 <%@ page import="com.upload_file_mvc.model.User"%>
 <%
 User user = (User) request.getAttribute("user");
+String successMessage = request.getParameter("success");
+String errorMessage = request.getParameter("error");
+String warningMessage = request.getParameter("warning");
 %>
 <!DOCTYPE html>
 <html>
@@ -17,6 +20,10 @@ body{font-family:Arial,sans-serif;background:#f5f5f5}
 .navbar a{color:white;text-decoration:none;padding:8px 15px;border-radius:5px;transition:background 0.3s}
 .navbar a:hover{background:rgba(255,255,255,0.2)}
 .container{max-width:1200px;margin:40px auto;padding:0 20px}
+.alert{padding:15px 20px;border-radius:8px;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.alert-success{background:#d4edda;color:#155724;border:1px solid #c3e6cb}
+.alert-error{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb}
+.alert-warning{background:#fff3cd;color:#856404;border:1px solid #ffeeba}
 .welcome{background:white;padding:30px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.1);margin-bottom:30px}
 .welcome h2{color:#333;margin-bottom:15px}
 .welcome p{color:#666;line-height:1.6}
@@ -36,12 +43,35 @@ body{font-family:Arial,sans-serif;background:#f5f5f5}
 <h1>Upload File MVC</h1>
 <div class="user-info">
 <span>Welcome, <%= user != null ? user.getFullName() : "Guest" %>!</span>
+<a href="<%= request.getContextPath() %>/home">Home</a>
 <a href="<%= request.getContextPath() %>/profile">Profile</a>
 <a href="<%= request.getContextPath() %>/users">Users</a>
+<a href="<%= request.getContextPath() %>/files">My Files</a>
 <a href="<%= request.getContextPath() %>/logout" class="logout-btn">Logout</a>
 </div>
 </div>
 <div class="container">
+<% if (successMessage != null) { %>
+<div class="alert alert-success">
+<span>✅</span>
+<div><%= successMessage %></div>
+</div>
+<% } %>
+
+<% if (errorMessage != null) { %>
+<div class="alert alert-error">
+<span>❌</span>
+<div><%= errorMessage %></div>
+</div>
+<% } %>
+
+<% if (warningMessage != null) { %>
+<div class="alert alert-warning">
+<span>⚠️</span>
+<div><%= warningMessage %></div>
+</div>
+<% } %>
+
 <div class="welcome">
 <h2>Welcome to Upload File MVC</h2>
 <p>This is a file upload management system with user authentication. You can:</p>
@@ -53,9 +83,9 @@ body{font-family:Arial,sans-serif;background:#f5f5f5}
 </div>
 <div class="cards">
 <div class="card">
-<h3>Upload File</h3>
-<p>Upload your files to Cloudinary</p>
-<a href="<%= request.getContextPath() %>/upload">Upload Now</a>
+<h3>File Management</h3>
+<p>View and manage your uploaded files</p>
+<a href="<%= request.getContextPath() %>/files">My Files</a>
 </div>
 <div class="card">
 <h3>Profile Management</h3>

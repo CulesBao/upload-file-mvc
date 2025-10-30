@@ -25,7 +25,6 @@ public class User {
         this.fullName = fullName;
     }
     
-    // Getters and Setters
     public int getId() {
         return id;
     }

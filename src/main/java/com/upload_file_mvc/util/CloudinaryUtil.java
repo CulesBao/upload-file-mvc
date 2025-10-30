@@ -62,9 +62,10 @@ public class CloudinaryUtil {
     }
 
     @SuppressWarnings("unchecked")
-	public static Map<String, Object> deleteFile(String publicId) throws IOException {
+	public static boolean deleteFile(String publicId) throws IOException {
         Cloudinary cloudinary = getInstance();
-        return cloudinary.uploader().destroy(publicId, ObjectUtils.emptyMap());
+        cloudinary.uploader().destroy(publicId, ObjectUtils.emptyMap());
+        return true;
     }
 
     public static String getFileUrl(String publicId) {

@@ -41,7 +41,10 @@ input[type="text"]:focus,input[type="email"]:focus{outline:none;border-color:#66
 <h1>Upload File MVC</h1>
 <div>
 <a href="<%= request.getContextPath() %>/home">Home</a>
+<a href="<%= request.getContextPath() %>/profile">Profile</a>
 <a href="<%= request.getContextPath() %>/users">Users</a>
+<a href="<%= request.getContextPath() %>/upload">Upload</a>
+<a href="<%= request.getContextPath() %>/files">My Files</a>
 <a href="<%= request.getContextPath() %>/logout">Logout</a>
 </div>
 </div>
