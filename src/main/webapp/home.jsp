@@ -1,6 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.upload_file_mvc.model.User"%>
-<% User user = (User) request.getAttribute("user"); %>
+<%
+User user = (User) request.getAttribute("user");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,8 +54,8 @@ body{font-family:Arial,sans-serif;background:#f5f5f5}
 <div class="cards">
 <div class="card">
 <h3>Upload File</h3>
-<p>Upload your files to the system</p>
-<a href="<%= request.getContextPath() %>/index.jsp">Upload Now</a>
+<p>Upload your files to Cloudinary</p>
+<a href="<%= request.getContextPath() %>/upload">Upload Now</a>
 </div>
 <div class="card">
 <h3>Profile Management</h3>

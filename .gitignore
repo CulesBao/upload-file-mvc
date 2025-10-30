@@ -1,0 +1,44 @@
+# Build directories
+build/
+target/
+bin/
+out/
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+.classpath
+.project
+.settings/
+
+# Compiled files
+*.class
+*.jar
+*.war
+*.ear
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Security - API Keys and Credentials
+src/main/java/com/upload_file_mvc/config/CloudinaryConfig.java
+src/main/java/com/upload_file_mvc/database/DBConfig.java
+
+# Tomcat work directory
+work/
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd

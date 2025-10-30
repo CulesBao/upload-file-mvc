@@ -16,6 +16,7 @@ A Java web application for file uploading with user authentication, built using 
 - **Backend**: Java Servlet/JSP
 - **Database**: MySQL 8.0+
 - **Server**: Apache Tomcat 9.0+
+- **Cloud Storage**: Cloudinary (for file uploads)
 - **Architecture**: MVC Pattern with Singleton database connection
 - **JDBC**: MySQL Connector/J
 
@@ -64,16 +65,31 @@ DB_USERNAME = "your_username"
 DB_PASSWORD = "your_password"
 ```
 
-### 3. Add MySQL Connector
+### 3. Configure Cloudinary
+See detailed instructions in [CLOUDINARY_SETUP.md](CLOUDINARY_SETUP.md)
+
+**Quick steps:**
+- Sign up at https://cloudinary.com/
+- Get your Cloud Name, API Key, and API Secret
+- Update `CloudinaryConfig.java` with your credentials
+- Add required JARs to `WEB-INF/lib/`:
+  - cloudinary-core-2.3.2.jar
+  - cloudinary-http44-2.3.2.jar
+  - commons-codec-1.15.jar
+  - commons-lang3-3.12.0.jar
+  - httpclient-4.5.13.jar
+  - httpcore-4.4.15.jar
+
+### 4. Add MySQL Connector
 - Download MySQL Connector/J JAR
 - Place it in `src/main/webapp/WEB-INF/lib/`
 
-### 4. Deploy to Tomcat
+### 5. Deploy to Tomcat
 - Build the project
 - Copy WAR file to Tomcat's `webapps/` directory
 - Start Tomcat server
 
-### 5. Access Application
+### 6. Access Application
 ```
 http://localhost:8080/UploadFileMVC/login
 ```
@@ -88,7 +104,7 @@ http://localhost:8080/UploadFileMVC/login
 
 ### Database Schema
 - **users**: id, email, password, full_name, created_at
-- **uploaded_files**: id, filename, filepath, filesize, user_id, upload_date
+- **uploaded_files**: id, file_name, file_path, file_size, file_type, user_id, cloudinary_public_id, cloudinary_url, upload_date
 
 ### Protected Routes
 - `/home` - Dashboard

@@ -1,0 +1,15 @@
+package com.upload_file_mvc.config;
+
+public class CloudinaryConfig {
+    // TODO: Replace with your actual Cloudinary credentials
+    // Get them from: https://console.cloudinary.com/
+    public static final String CLOUD_NAME = "your_cloud_name_here";
+    public static final String API_KEY = "your_api_key_here";
+    public static final String API_SECRET = "your_api_secret_here";
+    
+    // Upload folder in Cloudinary
+    public static final String UPLOAD_FOLDER = "upload_file_mvc";
+    
+    // Maximum file size (in bytes) - 1GB
+    public static final long MAX_FILE_SIZE = 1 * 1024 * 1024 * 1024;
+}

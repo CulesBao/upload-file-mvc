@@ -3,7 +3,6 @@ package com.upload_file_mvc.controller;
 import com.upload_file_mvc.dao.UserDAO;
 import com.upload_file_mvc.model.User;
 import com.upload_file_mvc.util.SessionUtil;
-import com.upload_file_mvc.util.PasswordUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
