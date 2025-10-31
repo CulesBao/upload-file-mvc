@@ -18,8 +18,8 @@ import java.util.List;
 
 @WebServlet("/upload-async")
 @MultipartConfig(
-    maxFileSize = 1024 * 1024 * 1024,      // 1 GB
-    maxRequestSize = 1024 * 1024 * 1024    // 1 GB
+    maxFileSize = 100 * 1024 * 1024,      // 100 MB
+    maxRequestSize = 100 * 1024 * 1024 * 10 // 1 GB total request
 )
 public class UploadAsyncController extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -53,7 +53,7 @@ public class UploadAsyncController extends HttpServlet {
                     totalFiles++;
                     
                     if (part.getSize() > CloudinaryConfig.MAX_FILE_SIZE) {
-                        errors.add(fileName + " is too large (max 10MB)");
+                        errors.add(fileName + " is too large (max 100MB)");
                         continue;
                     }
                     
@@ -96,7 +96,6 @@ public class UploadAsyncController extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/tasks?" + message.toString());
             
         } catch (Exception e) {
-            System.err.println("❌ Error in UploadAsyncController: " + e.getMessage());
             e.printStackTrace();
             response.sendRedirect(request.getContextPath() + "/tasks?error=Upload failed: " + e.getMessage());
         }

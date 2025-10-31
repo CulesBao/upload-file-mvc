@@ -150,22 +150,32 @@ function handleFileSelect(input) {
     const files = input.files;
     const uploadBtn = document.getElementById('uploadBtn');
     const selectedFiles = document.getElementById('selectedFiles');
+    const MAX_FILE_SIZE = 100 * 1024 * 1024; // 100MB in bytes
     
     if (files.length > 0) {
-        uploadBtn.disabled = false;
+        let hasError = false;
         let html = '<div style="background:#f8f9fa;padding:20px;border-radius:8px"><strong>Selected Files:</strong><br><br>';
         
         for (let i = 0; i < files.length; i++) {
             const file = files[i];
             const sizeInMB = (file.size / (1024 * 1024)).toFixed(2);
+            const isTooBig = file.size > MAX_FILE_SIZE;
+            
+            if (isTooBig) hasError = true;
+            
             html += '<div style="padding:8px 0;display:flex;align-items:center;gap:10px">';
-            html += '<span style="font-size:20px">📎</span>';
-            html += '<span style="flex:1"><strong>' + file.name + '</strong> <span style="color:#999">(' + sizeInMB + ' MB)</span></span>';
-            html += '</div>';
+            html += '<span style="font-size:20px">' + (isTooBig ? '❌' : '📎') + '</span>';
+            html += '<span style="flex:1' + (isTooBig ? ';color:#dc3545' : '') + '"><strong>' + file.name + '</strong> ';
+            html += '<span style="color:' + (isTooBig ? '#dc3545' : '#999') + '">(' + sizeInMB + ' MB)</span>';
+            if (isTooBig) {
+                html += ' <strong style="color:#dc3545">- Too large! Max 100MB</strong>';
+            }
+            html += '</span></div>';
         }
         
         html += '</div>';
         selectedFiles.innerHTML = html;
+        uploadBtn.disabled = hasError;
     } else {
         uploadBtn.disabled = true;
         selectedFiles.innerHTML = '';

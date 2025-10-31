@@ -47,7 +47,7 @@ SimpleDateFormat vidDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         <div class="file-meta">&#128197; <%= vidDateFormat.format(file.getUploadDate()) %></div>
         <div class="file-actions">
             <button class="btn btn-primary btn-sm" onclick="previewFile('<%= file.getCloudinaryUrl() %>', true)">&#128065; View</button>
-            <a href="<%= file.getCloudinaryUrl() %>" target="_blank" class="btn btn-primary btn-sm">&#8595; Open</a>
+            <a href="<%= request.getContextPath() %>/download?id=<%= file.getId() %>" class="btn btn-primary btn-sm">&#8595; Download</a>
             <button class="btn btn-danger btn-sm" onclick="confirmDelete(<%= file.getId() %>, this)" data-filename="<%= file.getFileName() %>">&#128465; Delete</button>
         </div>
     </div>

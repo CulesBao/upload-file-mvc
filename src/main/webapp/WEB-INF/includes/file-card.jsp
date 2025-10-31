@@ -31,7 +31,7 @@ if (cardFile != null) {
         <% if (cardFile.isImage() || cardFile.isVideo()) { %>
         <button class="btn btn-primary btn-sm" onclick="previewFile('<%= cardFile.getCloudinaryUrl() %>', <%= cardFile.isVideo() %>)">&#128065; View</button>
         <% } %>
-        <a href="<%= cardFile.getCloudinaryUrl() %>" target="_blank" class="btn btn-primary btn-sm">&#8595; Open</a>
+        <a href="<%= request.getContextPath() %>/download?id=<%= cardFile.getId() %>" class="btn btn-primary btn-sm">&#8595; Download</a>
         <button class="btn btn-danger btn-sm" onclick="confirmDelete(<%= cardFile.getId() %>, this)" data-filename="<%= cardFile.getFileName() %>">&#128465; Delete</button>
     </div>
 </div>

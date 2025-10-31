@@ -47,7 +47,7 @@ SimpleDateFormat docDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         <div class="file-meta">&#128197; <%= docDateFormat.format(file.getUploadDate()) %></div>
         <div class="file-meta" style="font-size:11px;color:#999"><%= file.getFileType() %></div>
         <div class="file-actions">
-            <a href="<%= file.getCloudinaryUrl() %>" target="_blank" class="btn btn-primary btn-sm">&#8595; Open</a>
+            <a href="<%= request.getContextPath() %>/download?id=<%= file.getId() %>" class="btn btn-primary btn-sm">&#8595; Download</a>
             <button class="btn btn-danger btn-sm" onclick="confirmDelete(<%= file.getId() %>, this)" data-filename="<%= file.getFileName() %>">&#128465; Delete</button>
         </div>
     </div>

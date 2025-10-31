@@ -186,18 +186,6 @@ String warningMsg = request.getParameter("warning");
                             Error: <%= task.getErrorMessage() != null ? task.getErrorMessage() : "Unknown error" %>
                         </div>
                     <% } %>
-                    
-                    <!-- Actions -->
-                    <% if (task.isCompleted() && task.getCloudinaryUrl() != null) { %>
-                        <div class="task-actions">
-                            <a href="<%= task.getCloudinaryUrl() %>" target="_blank" class="btn btn-primary">
-                                &#128065; View File
-                            </a>
-                            <a href="<%= task.getCloudinaryUrl() %>" download class="btn btn-success">
-                                &#8595; Download
-                            </a>
-                        </div>
-                    <% } %>
                 </div>
             <% } %>
         <% } %>

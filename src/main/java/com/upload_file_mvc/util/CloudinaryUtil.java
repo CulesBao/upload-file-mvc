@@ -35,19 +35,34 @@ public class CloudinaryUtil {
         return cloudinary;
     }
 
+    private static String detectResourceTypeFromFilename(String fileName) {
+        String lowerFileName = fileName.toLowerCase();
+        
+        if (lowerFileName.matches(".*\\.(jpg|jpeg|png|gif|bmp|webp|svg|ico|tiff)$")) {
+            return "image";
+        }
+        
+        if (lowerFileName.matches(".*\\.(mp4|avi|mov|wmv|flv|mkv|webm|m4v|mpeg|mpg)$")) {
+            return "video";
+        }
+        
+        return "raw";
+    }
+
     @SuppressWarnings("unchecked")
 	public static Map<String, Object> uploadFile(InputStream inputStream, String fileName, Integer userId) throws IOException {
         try {
             Cloudinary cloudinary = getInstance();
-
+            String resourceType = detectResourceTypeFromFilename(fileName);
+            
             String publicId = "user_" + userId + "_" + System.currentTimeMillis() + "_" + 
                              fileName.replaceAll("[^a-zA-Z0-9._-]", "_");
 
             Map<String, Object> uploadParams = ObjectUtils.asMap(
-                "resource_type", "auto",
+                "resource_type", resourceType,
                 "use_filename", true,
                 "unique_filename", true,
-                "timeout", 30000  // 30 seconds
+                "timeout", 30000
             );
 
             byte[] fileBytes = inputStream.readAllBytes();

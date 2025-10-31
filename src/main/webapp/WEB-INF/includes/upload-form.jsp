@@ -17,7 +17,7 @@
         <div class="upload-icon">&#9784;</div>
         <div class="upload-text">Click to upload files</div>
         <div class="upload-hint">or drag and drop files here</div>
-        <div class="upload-hint" style="margin-top:10px">Max 1 GB per file</div>
+        <div class="upload-hint" style="margin-top:10px">Max 100 MB per file</div>
     </div>
     <div id="selectedFiles" style="margin-top:20px"></div>
     <button type="submit" class="btn btn-primary" style="width:100%;margin-top:20px;padding:15px;font-size:16px" id="uploadBtn" disabled>
