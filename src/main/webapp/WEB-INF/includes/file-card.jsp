@@ -22,17 +22,17 @@ if (cardFile != null) {
 <div class="file-card" data-type="<%= cardFile.isImage() ? "image" : cardFile.isVideo() ? "video" : "document" %>">
     <div class="file-icon"><%= cardFile.getFileIcon() %></div>
     <div class="file-name"><%= cardFile.getFileName() %></div>
-    <div class="file-meta">&#128202; <%= cardFile.getFormattedFileSize() %></div>
-    <div class="file-meta">&#128197; <%= cardDateFormat.format(cardFile.getUploadDate()) %></div>
+    <div class="file-meta"><%= cardFile.getFormattedFileSize() %></div>
+    <div class="file-meta"><%= cardDateFormat.format(cardFile.getUploadDate()) %></div>
     <% if (cardFile.getFileType() != null) { %>
     <div class="file-meta" style="font-size:11px;color:#999"><%= cardFile.getFileType() %></div>
     <% } %>
     <div class="file-actions">
         <% if (cardFile.isImage() || cardFile.isVideo()) { %>
-        <button class="btn btn-primary btn-sm" onclick="previewFile('<%= cardFile.getCloudinaryUrl() %>', <%= cardFile.isVideo() %>)">&#128065; View</button>
+        <button class="btn btn-primary btn-sm" onclick="previewFile('<%= cardFile.getCloudinaryUrl() %>', <%= cardFile.isVideo() %>)">View</button>
         <% } %>
-        <a href="<%= request.getContextPath() %>/download?id=<%= cardFile.getId() %>" class="btn btn-primary btn-sm">&#8595; Download</a>
-        <button class="btn btn-danger btn-sm" onclick="confirmDelete(<%= cardFile.getId() %>, this)" data-filename="<%= cardFile.getFileName() %>">&#128465; Delete</button>
+        <a href="<%= request.getContextPath() %>/download?id=<%= cardFile.getId() %>" class="btn btn-primary btn-sm">Download</a>
+        <button class="btn btn-danger btn-sm" onclick="confirmDelete(<%= cardFile.getId() %>, this)" data-filename="<%= cardFile.getFileName() %>">Delete</button>
     </div>
 </div>
 <%

@@ -22,7 +22,6 @@ SimpleDateFormat docDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 .file-meta{font-size:12px;color:#666;margin:5px 0;}
 .file-actions{display:flex;gap:5px;margin-top:15px;flex-wrap:wrap;}
 .empty-state{text-align:center;padding:80px 20px;color:#999;}
-.empty-state-icon{font-size:80px;margin-bottom:20px;}
 .empty-state h3{color:#333;margin:10px 0;}
 .btn{padding:8px 16px;border:none;border-radius:5px;cursor:pointer;font-size:13px;transition:all 0.3s;text-decoration:none;display:inline-block;}
 .btn-primary{background:#6366f1;color:white;}
@@ -34,7 +33,6 @@ SimpleDateFormat docDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
 <% if (documents.isEmpty()) { %>
 <div class="empty-state">
-    <div class="empty-state-icon">&#128196;</div>
     <h3>No documents found</h3>
 </div>
 <% } else { %>
@@ -43,12 +41,12 @@ SimpleDateFormat docDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
     <div class="file-card">
         <div class="file-icon"><%= file.getFileIcon() %></div>
         <div class="file-name"><%= file.getFileName() %></div>
-        <div class="file-meta">&#128202; <%= file.getFormattedFileSize() %></div>
-        <div class="file-meta">&#128197; <%= docDateFormat.format(file.getUploadDate()) %></div>
+        <div class="file-meta"><%= file.getFormattedFileSize() %></div>
+        <div class="file-meta"><%= docDateFormat.format(file.getUploadDate()) %></div>
         <div class="file-meta" style="font-size:11px;color:#999"><%= file.getFileType() %></div>
         <div class="file-actions">
-            <a href="<%= request.getContextPath() %>/download?id=<%= file.getId() %>" class="btn btn-primary btn-sm">&#8595; Download</a>
-            <button class="btn btn-danger btn-sm" onclick="confirmDelete(<%= file.getId() %>, this)" data-filename="<%= file.getFileName() %>">&#128465; Delete</button>
+            <a href="<%= request.getContextPath() %>/download?id=<%= file.getId() %>" class="btn btn-primary btn-sm">Download</a>
+            <button class="btn btn-danger btn-sm" onclick="confirmDelete(<%= file.getId() %>, this)" data-filename="<%= file.getFileName() %>">Delete</button>
         </div>
     </div>
     <% } %>

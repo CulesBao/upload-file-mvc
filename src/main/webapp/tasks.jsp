@@ -77,7 +77,6 @@ String warningMsg = request.getParameter("warning");
         
         /* Empty State */
         .empty-state { text-align: center; padding: 60px 20px; background: white; border-radius: 10px; margin: 20px 0; }
-        .empty-state-icon { font-size: 64px; margin-bottom: 20px; }
         .empty-state h3 { color: #333; margin-bottom: 10px; }
         .empty-state p { color: #666; margin-bottom: 20px; }
         
@@ -89,7 +88,7 @@ String warningMsg = request.getParameter("warning");
     <%@ include file="/WEB-INF/includes/navbar.jsp" %>
     
     <div class="container">
-        <h1 style="margin: 20px 0; color: #333;">&#128202; My Upload Tasks</h1>
+        <h1 style="margin: 20px 0; color: #333;">My Upload Tasks</h1>
         
         <%@ include file="/WEB-INF/includes/alerts.jsp" %>
         
@@ -119,19 +118,18 @@ String warningMsg = request.getParameter("warning");
         
         <!-- Auto-refresh indicator -->
         <div class="auto-refresh">
-            &#8635; Auto-refreshing every 2 seconds... <span id="lastUpdate"></span>
+            Auto-refreshing every 2 seconds... <span id="lastUpdate"></span>
         </div>
         
         <!-- Tasks Header -->
         <div class="tasks-header">
             <h2>All Tasks (<%= tasks != null ? tasks.size() : 0 %>)</h2>
-            <button class="refresh-btn" onclick="location.reload()">&#8635; Refresh Now</button>
+            <button class="refresh-btn" onclick="location.reload()">Refresh Now</button>
         </div>
         
         <!-- Tasks List -->
         <% if (tasks == null || tasks.isEmpty()) { %>
             <div class="empty-state">
-                <div class="empty-state-icon">&#128193;</div>
                 <h3>No upload tasks yet</h3>
                 <p>Upload files to see tasks here</p>
                 <a href="<%= request.getContextPath() %>/files" class="btn btn-primary">Go to Upload</a>
@@ -168,7 +166,7 @@ String warningMsg = request.getParameter("warning");
                         <div class="progress-container">
                             <div class="progress-bar">
                                 <div class="progress-fill completed" style="width: 100%">
-                                    &#10004; Completed
+                                    Completed
                                 </div>
                             </div>
                         </div>
@@ -178,7 +176,7 @@ String warningMsg = request.getParameter("warning");
                         <div class="progress-container">
                             <div class="progress-bar">
                                 <div class="progress-fill failed" style="width: 100%">
-                                    &#10008; Failed
+                                    Failed
                                 </div>
                             </div>
                         </div>

@@ -48,7 +48,6 @@ body{font-family:Arial,sans-serif;background:#f5f5f5}
 .btn-danger:hover{background:#b91c1c}
 .btn-sm{padding:6px 12px;font-size:13px}
 .empty-state{text-align:center;padding:60px 20px;color:#999}
-.empty-state-icon{font-size:64px;margin-bottom:20px}
 .preview-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:1000;justify-content:center;align-items:center}
 .preview-modal.active{display:flex}
 .preview-content{max-width:90%;max-height:90%;background:white;border-radius:10px;overflow:hidden;position:relative}
@@ -70,11 +69,11 @@ body{font-family:Arial,sans-serif;background:#f5f5f5}
     <%@ include file="/WEB-INF/includes/alerts.jsp" %>
 
     <div class="tabs">
-        <button class="tab active" onclick="switchTab('all')">📁 All Files (<%= files != null ? files.size() : 0 %>)</button>
-        <button class="tab" onclick="switchTab('images')">🖼️ Images</button>
-        <button class="tab" onclick="switchTab('videos')">🎬 Videos</button>
-        <button class="tab" onclick="switchTab('documents')">📄 Documents</button>
-        <button class="tab" onclick="switchTab('upload')">⬆️ Upload New</button>
+        <button class="tab active" onclick="switchTab('all')">All Files (<%= files != null ? files.size() : 0 %>)</button>
+        <button class="tab" onclick="switchTab('images')">Images</button>
+        <button class="tab" onclick="switchTab('videos')">Videos</button>
+        <button class="tab" onclick="switchTab('documents')">Documents</button>
+        <button class="tab" onclick="switchTab('upload')">Upload New</button>
     </div>
 
     <div class="tab-content">
@@ -164,7 +163,7 @@ function handleFileSelect(input) {
             if (isTooBig) hasError = true;
             
             html += '<div style="padding:8px 0;display:flex;align-items:center;gap:10px">';
-            html += '<span style="font-size:20px">' + (isTooBig ? '❌' : '📎') + '</span>';
+            html += '<span style="font-size:20px">' + (isTooBig ? '' : '') + '</span>';
             html += '<span style="flex:1' + (isTooBig ? ';color:#dc3545' : '') + '"><strong>' + file.name + '</strong> ';
             html += '<span style="color:' + (isTooBig ? '#dc3545' : '#999') + '">(' + sizeInMB + ' MB)</span>';
             if (isTooBig) {
