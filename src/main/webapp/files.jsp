@@ -22,16 +22,16 @@ body{font-family:Arial,sans-serif;background:#f5f5f5}
 .tabs{background:white;border-radius:10px 10px 0 0;box-shadow:0 2px 10px rgba(0,0,0,0.1);display:flex;overflow:hidden}
 .tab{flex:1;padding:20px;text-align:center;background:#f8f9fa;border:none;cursor:pointer;font-size:16px;font-weight:600;color:#666;transition:all 0.3s;border-bottom:3px solid transparent}
 .tab:hover{background:#e9ecef;color:#333}
-.tab.active{background:white;color:#667eea;border-bottom:3px solid #667eea}
+.tab.active{background:white;color:#6366f1;border-bottom:3px solid #6366f1}
 .tab-content{background:white;padding:30px;border-radius:0 0 10px 10px;box-shadow:0 2px 10px rgba(0,0,0,0.1);min-height:400px}
 .tab-panel{display:none}
 .tab-panel.active{display:block}
 .alert{padding:15px 20px;border-radius:8px;margin-bottom:20px;display:flex;align-items:center;gap:10px}
-.alert-success{background:#d4edda;color:#155724;border:1px solid #c3e6cb}
-.alert-error{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb}
-.alert-warning{background:#fff3cd;color:#856404;border:1px solid #ffeeba}
+.alert-success{background:#d1fae5;color:#065f46;border:1px solid #a7f3d0}
+.alert-error{background:#fee2e2;color:#991b1b;border:1px solid #fecaca}
+.alert-warning{background:#fef3c7;color:#92400e;border:1px solid #fde68a}
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-bottom:30px}
-.stat-card{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:20px;border-radius:10px;text-align:center}
+.stat-card{background:#6366f1;color:white;padding:20px;border-radius:10px;text-align:center}
 .stat-card h3{font-size:36px;margin-bottom:5px}
 .stat-card p{opacity:0.9;font-size:14px}
 .files-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
@@ -42,10 +42,10 @@ body{font-family:Arial,sans-serif;background:#f5f5f5}
 .file-meta{font-size:13px;color:#666;margin-bottom:5px}
 .file-actions{display:flex;gap:10px;margin-top:15px;padding-top:15px;border-top:1px solid #dee2e6;flex-wrap:wrap}
 .btn{padding:8px 15px;border:none;border-radius:5px;cursor:pointer;font-size:14px;font-weight:600;transition:all 0.3s;text-decoration:none;display:inline-block}
-.btn-primary{background:#667eea;color:white}
-.btn-primary:hover{background:#5568d3}
-.btn-danger{background:#e74c3c;color:white}
-.btn-danger:hover{background:#c0392b}
+.btn-primary{background:#6366f1;color:white}
+.btn-primary:hover{background:#4f46e5}
+.btn-danger{background:#dc2626;color:white}
+.btn-danger:hover{background:#b91c1c}
 .btn-sm{padding:6px 12px;font-size:13px}
 .empty-state{text-align:center;padding:60px 20px;color:#999}
 .empty-state-icon{font-size:64px;margin-bottom:20px}
@@ -55,11 +55,11 @@ body{font-family:Arial,sans-serif;background:#f5f5f5}
 .preview-content img,.preview-content video{max-width:100%;max-height:80vh;display:block}
 .preview-close{position:absolute;top:20px;right:20px;background:rgba(0,0,0,0.7);color:white;border:none;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:24px;z-index:10}
 .preview-close:hover{background:rgba(0,0,0,0.9)}
-.upload-zone{border:2px dashed #667eea;border-radius:10px;padding:60px 20px;text-align:center;background:#f8f9ff;cursor:pointer;transition:all 0.3s}
-.upload-zone:hover{border-color:#5568d3;background:#f0f2ff}
+.upload-zone{border:2px dashed #6366f1;border-radius:10px;padding:60px 20px;text-align:center;background:#f0f1fe;cursor:pointer;transition:all 0.3s}
+.upload-zone:hover{border-color:#4f46e5;background:#e0e7ff}
 .upload-zone input{display:none}
 .upload-icon{font-size:64px;margin-bottom:20px}
-.upload-text{color:#667eea;font-size:18px;font-weight:600;margin-bottom:10px}
+.upload-text{color:#6366f1;font-size:18px;font-weight:600;margin-bottom:10px}
 .upload-hint{color:#999;font-size:14px}
     </style>
 </head>
@@ -196,20 +196,20 @@ document.addEventListener('DOMContentLoaded', function() {
     if (uploadZone) {
         uploadZone.addEventListener('dragover', function(e) {
             e.preventDefault();
-            this.style.borderColor = '#5568d3';
-            this.style.background = '#f0f2ff';
+            this.style.borderColor = '#4f46e5';
+            this.style.background = '#e0e7ff';
         });
         
         uploadZone.addEventListener('dragleave', function(e) {
             e.preventDefault();
-            this.style.borderColor = '#667eea';
-            this.style.background = '#f8f9ff';
+            this.style.borderColor = '#6366f1';
+            this.style.background = '#f0f1fe';
         });
         
         uploadZone.addEventListener('drop', function(e) {
             e.preventDefault();
-            this.style.borderColor = '#667eea';
-            this.style.background = '#f8f9ff';
+            this.style.borderColor = '#6366f1';
+            this.style.background = '#f0f1fe';
             
             const files = e.dataTransfer.files;
             const fileInput = document.getElementById('fileInput');

@@ -22,11 +22,11 @@ body{font-family:Arial,sans-serif;background:#f5f5f5}
 .form-group{margin-bottom:20px}
 label{display:block;margin-bottom:5px;color:#555;font-weight:bold}
 input[type="text"],input[type="email"]{width:100%;padding:12px;border:1px solid #ddd;border-radius:5px;font-size:14px}
-input[type="text"]:focus,input[type="email"]:focus{outline:none;border-color:#667eea}
-.btn{width:100%;padding:12px;background:#667eea;color:white;border:none;border-radius:5px;font-size:16px;cursor:pointer;margin-top:10px}
-.btn:hover{background:#5568d3}
-.error{background:#ffebee;color:#c62828;padding:10px;border-radius:5px;margin-bottom:20px;text-align:center}
-.success{background:#e8f5e9;color:#2e7d32;padding:10px;border-radius:5px;margin-bottom:20px;text-align:center}
+input[type="text"]:focus,input[type="email"]:focus{outline:none;border-color:#6366f1}
+.btn{width:100%;padding:12px;background:#6366f1;color:white;border:none;border-radius:5px;font-size:16px;cursor:pointer;margin-top:10px}
+.btn:hover{background:#4f46e5}
+.error{background:#fee2e2;color:#991b1b;padding:10px;border-radius:5px;margin-bottom:20px;text-align:center}
+.success{background:#d1fae5;color:#065f46;padding:10px;border-radius:5px;margin-bottom:20px;text-align:center}
 .info-group{margin-bottom:15px;padding:10px;background:#f9f9f9;border-radius:5px}
 .info-group label{margin-bottom:5px}
 .info-group span{color:#333;font-size:16px}

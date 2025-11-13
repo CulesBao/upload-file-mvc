@@ -18,10 +18,10 @@ body{font-family:Arial,sans-serif;background:#f5f5f5}
 .users-card h2{color:#333;margin-bottom:20px}
 table{width:100%;border-collapse:collapse}
 th,td{padding:12px;text-align:left;border-bottom:1px solid #ddd}
-th{background:#667eea;color:white;font-weight:bold}
+th{background:#6366f1;color:white;font-weight:bold}
 tr:hover{background:#f5f5f5}
-.error{background:#ffebee;color:#c62828;padding:10px;border-radius:5px;margin-bottom:20px;text-align:center}
-.success{background:#e8f5e9;color:#2e7d32;padding:10px;border-radius:5px;margin-bottom:20px;text-align:center}
+.error{background:#fee2e2;color:#991b1b;padding:10px;border-radius:5px;margin-bottom:20px;text-align:center}
+.success{background:#d1fae5;color:#065f46;padding:10px;border-radius:5px;margin-bottom:20px;text-align:center}
 </style>
 </head>
 <body>

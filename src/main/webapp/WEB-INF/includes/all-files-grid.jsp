@@ -18,10 +18,10 @@ SimpleDateFormat allDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 .empty-state-icon{font-size:80px;margin-bottom:20px;}
 .empty-state h3{color:#333;margin:10px 0;}
 .btn{padding:8px 16px;border:none;border-radius:5px;cursor:pointer;font-size:13px;transition:all 0.3s;text-decoration:none;display:inline-block;}
-.btn-primary{background:#667eea;color:white;}
-.btn-primary:hover{background:#5568d3;}
-.btn-danger{background:#ff3b30;color:white;}
-.btn-danger:hover{background:#e02020;}
+.btn-primary{background:#6366f1;color:white;}
+.btn-primary:hover{background:#4f46e5;}
+.btn-danger{background:#dc2626;color:white;}
+.btn-danger:hover{background:#b91c1c;}
 .btn-sm{padding:6px 12px;font-size:12px;}
 </style>
 

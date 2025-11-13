@@ -37,17 +37,17 @@ String warningMsg = request.getParameter("warning");
         .stat-card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; }
         .stat-card h3 { font-size: 32px; margin-bottom: 5px; }
         .stat-card p { color: #666; font-size: 14px; }
-        .stat-card.pending { border-left: 4px solid #ffa500; }
-        .stat-card.processing { border-left: 4px solid #667eea; }
-        .stat-card.completed { border-left: 4px solid #28a745; }
-        .stat-card.failed { border-left: 4px solid #dc3545; }
-        .stat-card.queue { border-left: 4px solid #17a2b8; }
+        .stat-card.pending { border-left: 4px solid #f59e0b; }
+        .stat-card.processing { border-left: 4px solid #6366f1; }
+        .stat-card.completed { border-left: 4px solid #10b981; }
+        .stat-card.failed { border-left: 4px solid #dc2626; }
+        .stat-card.queue { border-left: 4px solid #06b6d4; }
         
         /* Tasks List */
         .tasks-header { display: flex; justify-content: space-between; align-items: center; margin: 30px 0 20px 0; }
         .tasks-header h2 { color: #333; }
-        .refresh-btn { background: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; }
-        .refresh-btn:hover { background: #5568d3; }
+        .refresh-btn { background: #6366f1; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; }
+        .refresh-btn:hover { background: #4f46e5; }
         
         .task-card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 15px; }
         .task-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
@@ -63,17 +63,17 @@ String warningMsg = request.getParameter("warning");
         /* Progress Bar */
         .progress-container { margin: 15px 0; }
         .progress-bar { background: #e9ecef; height: 30px; border-radius: 15px; overflow: hidden; position: relative; }
-        .progress-fill { background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); height: 100%; transition: width 0.3s ease; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 14px; }
-        .progress-fill.failed { background: #dc3545; }
-        .progress-fill.completed { background: #28a745; }
+        .progress-fill { background: #6366f1; height: 100%; transition: width 0.3s ease; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 14px; }
+        .progress-fill.failed { background: #dc2626; }
+        .progress-fill.completed { background: #10b981; }
         
         /* Task Actions */
         .task-actions { display: flex; gap: 10px; margin-top: 15px; }
         .btn { padding: 8px 16px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; text-decoration: none; display: inline-block; }
-        .btn-primary { background: #667eea; color: white; }
-        .btn-primary:hover { background: #5568d3; }
-        .btn-success { background: #28a745; color: white; }
-        .btn-success:hover { background: #218838; }
+        .btn-primary { background: #6366f1; color: white; }
+        .btn-primary:hover { background: #4f46e5; }
+        .btn-success { background: #10b981; color: white; }
+        .btn-success:hover { background: #059669; }
         
         /* Empty State */
         .empty-state { text-align: center; padding: 60px 20px; background: white; border-radius: 10px; margin: 20px 0; }

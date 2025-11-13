@@ -13,10 +13,10 @@ if (cardFile != null) {
 .file-meta{font-size:12px;color:#666;margin:5px 0;}
 .file-actions{display:flex;gap:5px;margin-top:15px;flex-wrap:wrap;}
 .btn{padding:8px 16px;border:none;border-radius:5px;cursor:pointer;font-size:13px;transition:all 0.3s;text-decoration:none;display:inline-block;}
-.btn-primary{background:#667eea;color:white;}
-.btn-primary:hover{background:#5568d3;}
-.btn-danger{background:#ff3b30;color:white;}
-.btn-danger:hover{background:#e02020;}
+.btn-primary{background:#6366f1;color:white;}
+.btn-primary:hover{background:#4f46e5;}
+.btn-danger{background:#dc2626;color:white;}
+.btn-danger:hover{background:#b91c1c;}
 .btn-sm{padding:6px 12px;font-size:12px;}
 </style>
 <div class="file-card" data-type="<%= cardFile.isImage() ? "image" : cardFile.isVideo() ? "video" : "document" %>">

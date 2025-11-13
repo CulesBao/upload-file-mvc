@@ -1,7 +1,7 @@
 <style>
-.upload-zone{border:3px dashed #667eea;border-radius:10px;padding:60px 20px;text-align:center;cursor:pointer;transition:all 0.3s;background:#f8f9ff;}
-.upload-zone:hover{background:#e8ebff;border-color:#764ba2;}
-.upload-zone.drag-over{background:#667eea;border-color:#764ba2;transform:scale(1.02);}
+.upload-zone{border:3px dashed #6366f1;border-radius:10px;padding:60px 20px;text-align:center;cursor:pointer;transition:all 0.3s;background:#f0f1fe;}
+.upload-zone:hover{background:#e0e7ff;border-color:#4f46e5;}
+.upload-zone.drag-over{background:#6366f1;border-color:#4f46e5;transform:scale(1.02);}
 .upload-zone.drag-over .upload-icon,.upload-zone.drag-over .upload-text,.upload-zone.drag-over .upload-hint{color:white;}
 .upload-icon{font-size:64px;margin-bottom:20px;}
 .upload-text{font-size:20px;font-weight:600;color:#333;margin-bottom:10px;}

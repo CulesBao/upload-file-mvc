@@ -16,9 +16,9 @@ String warningMessage = request.getParameter("warning");
 body{font-family:Arial,sans-serif;background:#f5f5f5}
 .container{max-width:1200px;margin:40px auto;padding:0 20px}
 .alert{padding:15px 20px;border-radius:8px;margin-bottom:20px;display:flex;align-items:center;gap:10px}
-.alert-success{background:#d4edda;color:#155724;border:1px solid #c3e6cb}
-.alert-error{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb}
-.alert-warning{background:#fff3cd;color:#856404;border:1px solid #ffeeba}
+.alert-success{background:#d1fae5;color:#065f46;border:1px solid #a7f3d0}
+.alert-error{background:#fee2e2;color:#991b1b;border:1px solid #fecaca}
+.alert-warning{background:#fef3c7;color:#92400e;border:1px solid #fde68a}
 .welcome{background:white;padding:30px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.1);margin-bottom:30px}
 .welcome h2{color:#333;margin-bottom:15px}
 .welcome p{color:#666;line-height:1.6}
@@ -27,10 +27,10 @@ body{font-family:Arial,sans-serif;background:#f5f5f5}
 .card:hover{transform:translateY(-5px)}
 .card h3{color:#333;margin-bottom:15px}
 .card p{color:#666;margin-bottom:20px}
-.card a{display:inline-block;padding:10px 20px;background:#667eea;color:white;text-decoration:none;border-radius:5px;transition:background 0.3s}
-.card a:hover{background:#5568d3}
-.logout-btn{background:#e74c3c;padding:8px 15px;border-radius:5px;cursor:pointer}
-.logout-btn:hover{background:#c0392b}
+.card a{display:inline-block;padding:10px 20px;background:#6366f1;color:white;text-decoration:none;border-radius:5px;transition:background 0.3s}
+.card a:hover{background:#4f46e5}
+.logout-btn{background:#dc2626;padding:8px 15px;border-radius:5px;cursor:pointer}
+.logout-btn:hover{background:#b91c1c}
 </style>
 </head>
 <body>
