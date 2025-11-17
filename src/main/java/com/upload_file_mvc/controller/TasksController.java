@@ -10,10 +10,10 @@ import java.io.IOException;
 import java.util.List;
 
 import com.upload_file_mvc.dao.UploadTaskDAO;
-import com.upload_file_mvc.model.UploadTask;
-import com.upload_file_mvc.model.User;
-import com.upload_file_mvc.service.FileUploadService;
-import com.upload_file_mvc.service.FileUploadService.TaskStats;
+import com.upload_file_mvc.dto.UploadTask;
+import com.upload_file_mvc.dto.User;
+import com.upload_file_mvc.bll.FileUploadService;
+import com.upload_file_mvc.bll.FileUploadService.TaskStats;
 import com.upload_file_mvc.util.SessionUtil;
 
 @WebServlet("/tasks")

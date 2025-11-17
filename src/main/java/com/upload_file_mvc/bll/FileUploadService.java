@@ -1,4 +1,4 @@
-package com.upload_file_mvc.service;
+package com.upload_file_mvc.bll;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -9,9 +9,9 @@ import java.util.concurrent.Executors;
 
 import javax.servlet.http.Part;
 
-import com.upload_file_mvc.dao.UploadTaskDAO;
-import com.upload_file_mvc.dao.UploadedFileDAO;
-import com.upload_file_mvc.model.UploadTask;
+import com.upload_file_mvc.dal.UploadTaskDAO;
+import com.upload_file_mvc.dal.UploadedFileDAO;
+import com.upload_file_mvc.dto.UploadTask;
 import com.upload_file_mvc.util.CloudinaryUtil;
 
 public class FileUploadService {

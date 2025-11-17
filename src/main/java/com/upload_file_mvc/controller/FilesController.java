@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 import com.upload_file_mvc.dao.UploadedFileDAO;
-import com.upload_file_mvc.model.UploadedFile;
+import com.upload_file_mvc.dto.UploadedFile;
 import com.upload_file_mvc.util.SessionUtil;
 import com.upload_file_mvc.util.CloudinaryUtil;
 

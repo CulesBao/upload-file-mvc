@@ -1,4 +1,4 @@
-package com.upload_file_mvc.model;
+package com.upload_file_mvc.dto;
 
 import java.sql.Timestamp;
 

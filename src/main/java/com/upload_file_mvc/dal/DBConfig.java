@@ -1,4 +1,4 @@
-package com.upload_file_mvc.database;
+package com.upload_file_mvc.dal;
 
 public class DBConfig {
     

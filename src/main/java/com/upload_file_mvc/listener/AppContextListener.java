@@ -4,40 +4,27 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-import com.upload_file_mvc.service.FileUploadService;
+import com.upload_file_mvc.bll.FileUploadService;
 
-/**
- * Application lifecycle listener
- * Initializes FileUploadService when app starts
- * Shuts down gracefully when app stops
- */
 @WebListener
 public class AppContextListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        System.out.println("===========================================");
-        System.out.println("🚀 Application Starting...");
-        System.out.println("===========================================");
-        
-        // Initialize FileUploadService (starts background workers)
+        System.out.println("Application Starting...");
+
         FileUploadService.getInstance();
         
-        System.out.println("✅ FileUploadService initialized");
-        System.out.println("✅ Background workers started");
-        System.out.println("===========================================");
+        System.out.println("FileUploadService initialized");
+        System.out.println("Background workers started");
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        System.out.println("===========================================");
-        System.out.println("🛑 Application Stopping...");
-        System.out.println("===========================================");
+        System.out.println("Application Stopping...");
         
-        // Shutdown FileUploadService gracefully
         FileUploadService.getInstance().shutdown();
         
-        System.out.println("✅ FileUploadService stopped");
-        System.out.println("===========================================");
+        System.out.println("FileUploadService stopped");
     }
 }

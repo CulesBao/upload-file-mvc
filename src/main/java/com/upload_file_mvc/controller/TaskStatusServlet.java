@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import com.upload_file_mvc.dao.UploadTaskDAO;
-import com.upload_file_mvc.model.UploadTask;
+import com.upload_file_mvc.dto.UploadTask;
 import com.upload_file_mvc.util.SessionUtil;
 
 @WebServlet("/api/task-status")

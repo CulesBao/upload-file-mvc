@@ -1,7 +1,7 @@
 package com.upload_file_mvc.controller;
 
 import com.upload_file_mvc.dao.UploadedFileDAO;
-import com.upload_file_mvc.model.UploadedFile;
+import com.upload_file_mvc.dto.UploadedFile;
 import com.upload_file_mvc.util.CloudinaryUtil;
 import com.upload_file_mvc.util.SessionUtil;
 

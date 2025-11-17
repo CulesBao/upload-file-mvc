@@ -2,7 +2,7 @@ package com.upload_file_mvc.util;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import com.upload_file_mvc.model.User;
+import com.upload_file_mvc.dto.User;
 
 public class SessionUtil {
     

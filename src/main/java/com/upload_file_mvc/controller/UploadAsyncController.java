@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import com.upload_file_mvc.service.FileUploadService;
+import com.upload_file_mvc.bll.FileUploadService;
 import com.upload_file_mvc.util.SessionUtil;
 import com.upload_file_mvc.config.CloudinaryConfig;
 
