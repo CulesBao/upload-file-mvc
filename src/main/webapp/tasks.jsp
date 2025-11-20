@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="com.upload_file_mvc.model.User"%>
-<%@ page import="com.upload_file_mvc.model.UploadTask"%>
-<%@ page import="com.upload_file_mvc.service.FileUploadService.TaskStats"%>
+<%@ page import="com.upload_file_mvc.dto.User"%>
+<%@ page import="com.upload_file_mvc.dto.UploadTask"%>
+<%@ page import="com.upload_file_mvc.bll.FileUploadService.TaskStats"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="com.upload_file_mvc.model.User"%>
+<%@ page import="com.upload_file_mvc.dto.User"%>
 <%
 User user = (User) request.getAttribute("user");
 String successMessage = request.getParameter("success");

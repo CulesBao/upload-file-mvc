@@ -1,4 +1,4 @@
-<%@ page import="com.upload_file_mvc.model.UploadedFile"%>
+<%@ page import="com.upload_file_mvc.dto.UploadedFile"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.text.SimpleDateFormat"%>

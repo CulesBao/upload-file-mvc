@@ -1,6 +1,5 @@
-package com.upload_file_mvc.dao;
+package com.upload_file_mvc.dal;
 
-import com.upload_file_mvc.database.DatabaseConnection;
 import com.upload_file_mvc.dto.UploadTask;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

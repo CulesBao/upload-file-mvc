@@ -1,4 +1,4 @@
-<%@ page import="com.upload_file_mvc.model.User"%>
+<%@ page import="com.upload_file_mvc.dto.User"%>
 <%
 User navUser = (User) request.getAttribute("user");
 String currentPage = request.getServletPath();

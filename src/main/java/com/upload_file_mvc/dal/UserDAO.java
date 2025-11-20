@@ -1,6 +1,5 @@
-package com.upload_file_mvc.dao;
+package com.upload_file_mvc.dal;
 
-import com.upload_file_mvc.database.DatabaseConnection;
 import com.upload_file_mvc.dto.User;
 import com.upload_file_mvc.util.PasswordUtil;
 import java.sql.*;

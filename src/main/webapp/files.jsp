@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.upload_file_mvc.model.User"%>
-<%@ page import="com.upload_file_mvc.model.UploadedFile"%>
+<%@ page import="com.upload_file_mvc.dto.User"%>
+<%@ page import="com.upload_file_mvc.dto.UploadedFile"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%
